@@ -1,0 +1,41 @@
+import random
+letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
+
+print("Welcome to the PyPassword Generator!")
+nr_letters= int(input("How many letters would you like in your password?\n")) 
+nr_symbols = int(input(f"How many symbols would you like?\n"))
+nr_numbers = int(input(f"How many numbers would you like?\n"))
+
+pass_word=""
+total_number= nr_letters+nr_numbers+nr_symbols
+word_list= ["letters","numbers","symbols"]
+num=0
+let=0
+sym=0
+for words in range(1,total_number+1):
+  picked= random.choice(word_list)
+  if picked=="letters":
+    let+=1
+    letter= random.choice(letters)
+    if let==nr_letters:
+      word_list.remove("letters")
+  elif picked=="symbols":
+    sym+=1
+    letter= random.choice(symbols)
+    if sym==nr_symbols:
+      word_list.remove("symbols")
+  elif picked=="numbers":
+    num+=1
+    letter= random.choice(numbers)
+    if num==nr_numbers:
+      word_list.remove("numbers")
+  
+  pass_word+= letter
+
+
+  
+print(f"Your new password is {pass_word}")
+  
+
